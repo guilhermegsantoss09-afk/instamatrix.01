@@ -5,7 +5,7 @@ export default async function Contas() {
   const supabase = createClient()
   const { data: accounts } = await supabase.from('accounts').select('*')
 
-  const oauthUrl = `https://api.instagram.com/oauth/authorize?client_id=${process.env.META_APP_ID}&redirect_uri=${process.env.META_REDIRECT_URI}&scope=instagram_business_basic,instagram_business_content_publish,instagram_business_manage_comments&response_type=code`
+  const oauthUrl = `https://www.facebook.com/v25.0/dialog/oauth?client_id=${process.env.META_APP_ID}&redirect_uri=${process.env.META_REDIRECT_URI}&scope=pages_show_list,pages_read_engagement,instagram_basic,instagram_content_publish,instagram_manage_comments,business_management&response_type=code`
 
   return (
     <div className="app">
