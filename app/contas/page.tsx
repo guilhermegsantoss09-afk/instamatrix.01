@@ -5,7 +5,7 @@ export default async function Contas() {
   const supabase = createClient()
   const { data: accounts } = await supabase.from('accounts').select('*')
 
-  const oauthUrl = `https://www.facebook.com/v25.0/dialog/oauth?client_id=${process.env.META_APP_ID}&redirect_uri=${process.env.META_REDIRECT_URI}&scope=instagram_basic,instagram_content_publish,instagram_manage_comments,pages_show_list,pages_read_engagement,business_management&response_type=code`
+  const oauthUrl = `https://www.facebook.com/v25.0/dialog/oauth?client_id=${process.env.META_APP_ID}&redirect_uri=${process.env.META_REDIRECT_URI}&scope=instagram_business_basic,instagram_content_publish,instagram_manage_comments,pages_show_list,pages_read_engagement,business_management&response_type=code`
 
   return (
     <div className="app">
@@ -20,7 +20,6 @@ export default async function Contas() {
             + Adicionar conta
           </a>
         </div>
-
         {!accounts?.length ? (
           <div className="card" style={{ textAlign: 'center', padding: 64 }}>
             <div style={{ fontSize: 48, marginBottom: 16 }}>📱</div>
